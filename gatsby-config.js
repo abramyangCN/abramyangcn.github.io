@@ -17,6 +17,7 @@ module.exports = {
     },
   },
   plugins: [
+    `gatsby-plugin-image`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -27,15 +28,8 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/content/assets`,
-        name: `assets`,
-      },
-    },
-    {
-      resolve: `gatsby-theme-material-ui`,
-      options: {
-        // stylesProvider,
-        // webFontConfig
+        name: `images`,
+        path: `${__dirname}/src/images`,
       },
     },
     {
@@ -45,7 +39,7 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 590,
+              maxWidth: 630,
             },
           },
           {
@@ -60,25 +54,66 @@ module.exports = {
         ],
       },
     },
-    {
-      resolve: `gatsby-plugin-sharp`,
-      options: {
-        // Available options and their defaults:
-        base64Width: 20,
-        // forceBase64Format: ``, // valid formats: png,jpg,webp
-        useMozJpeg: process.env.GATSBY_JPEG_ENCODER === `MOZJPEG`,
-        stripMetadata: true,
-        defaultQuality: 50,
-        failOnError: true,
-      },
-    },
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: "G-DFGPNLLJ1J",
+        trackingId: `G-DFGPNLLJ1J`,
       },
     },
-    `gatsby-plugin-feed`,
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+                site_url: siteUrl
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allMarkdownRemark } }) => {
+              return allMarkdownRemark.nodes.map(node => {
+                return Object.assign({}, node.frontmatter, {
+                  description: node.excerpt,
+                  date: node.frontmatter.date,
+                  url: site.siteMetadata.siteUrl + node.fields.slug,
+                  guid: site.siteMetadata.siteUrl + node.fields.slug,
+                  custom_elements: [{ "content:encoded": node.html }],
+                })
+              })
+            },
+            query: `
+              {
+                allMarkdownRemark(
+                  sort: { order: DESC, fields: [frontmatter___date] },
+                ) {
+                  nodes {
+                    excerpt
+                    html
+                    fields {
+                      slug
+                    }
+                    frontmatter {
+                      title
+                      date
+                    }
+                  }
+                }
+              }
+            `,
+            output: "/rss.xml",
+          },
+        ],
+      },
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -88,13 +123,11 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `content/assets/gatsby-icon.png`,
+        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-sass`,
-    `gatsby-transformer-sharp`,
-
+    // `gatsby-plugin-gatsby-cloud`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
