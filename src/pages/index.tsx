@@ -10,8 +10,8 @@ import Seo from "../components/seo"
 type Data = {
   site: {
     siteMetadata: {
-      title: string
-    }
+      title: string,
+    },
   }
 }
 

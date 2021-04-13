@@ -1,35 +1,31 @@
 import * as React from "react"
-import { Link } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 import PrimarySearchAppBar from "./PrimarySearchAppBar"
+import Container from "@material-ui/core/Container"
+import Skeleton from "@material-ui/lab/Skeleton"
 
 const Layout = ({ location, title, children }) => {
+  const data = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          navs {
+            name
+            path
+          }
+        }
+      }
+    }
+  `)
+
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
-  let header
-  const pages = [
-    { name: "Home", link: "/" },
-    { name: "Blog", link: "/blog" },
-  ]
-
-  if (isRootPath) {
-    header = (
-      <h1 className="main-heading">
-        <Link to="/">{title}</Link>
-      </h1>
-    )
-  } else {
-    header = (
-      <Link className="header-link-home" to="/">
-        {title}
-      </Link>
-    )
-  }
+  const { navs } = data.site.siteMetadata
 
   return (
     <div data-is-root-path={isRootPath}>
-      <PrimarySearchAppBar pages={pages} siteName={title} />
-      <header className="global-header">{header}</header>
-      <main>{children}</main>
+      <PrimarySearchAppBar pages={navs} siteName={title} />
+      <Container fixed>{children}</Container>
       <footer>
         © {new Date().getFullYear()}, Built with
         {` `}
