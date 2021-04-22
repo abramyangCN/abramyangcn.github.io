@@ -1,12 +1,12 @@
 // Gatsby supports TypeScript natively!
 
-import React, { useState } from 'react'
+import React, { useState } from "react"
 import { PageProps, graphql } from "gatsby"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import { Cover } from "../components/logo"
+import Cover from "../components/svgIcons/Cover"
 
 type Data = {
   site: {
@@ -16,23 +16,18 @@ type Data = {
   }
 }
 
-const Home = ({ data, location }: PageProps<Data>) => {
-
-  const [isLoading, setIsLoading] = useState(true)
+const Home = ({ data, location }: PageProps<Data>) : JSX.Element => {
+  const [isLoading, setIsLoading] : [any, any] = useState(true)
   const { title: siteTitle } = data.site.siteMetadata
 
-  setTimeout(() => (setIsLoading(false)), 10000)
-
+  setTimeout(() => setIsLoading(false), 5000)
   return (
     <div>
-      {isLoading ? (
-        <Cover loaded={!isLoading} />
-      ) : (
-        <Layout location={location} title={siteTitle}>
-          <Seo title="Home" />
-          <Bio />
-        </Layout>
-      )}
+      <Cover loaded={!isLoading} />
+      <Layout location={location} title={siteTitle}>
+        <Seo title="Home" />
+        <Bio />
+      </Layout>
     </div>
   )
 }

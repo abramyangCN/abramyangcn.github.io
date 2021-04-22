@@ -13,7 +13,7 @@ import Menu from "@material-ui/core/Menu"
 import SearchIcon from "@material-ui/icons/Search"
 import MoreIcon from "@material-ui/icons/MoreVert"
 
-import {Logo, Cover} from "./logo"
+import Logo from "./svgIcons/Logo"
 
 const useStyles = makeStyles(theme => ({
   grow: {
