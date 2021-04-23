@@ -34,13 +34,15 @@ const Cover = ({ loaded }) => {
     <div
       style={{
         width: "100%",
-        height: "100vh",
+        height: "100%",
         position: "fixed",
         top: 0,
         left: 0,
         display: "flex",
         zIndex: 900,
         alignItems: "center",
+        justifyContent: "center",
+        background: "white",
       }}
       className={wapperAnimate}
     >
@@ -49,9 +51,7 @@ const Cover = ({ loaded }) => {
         x="0px"
         y="0px"
         style={{
-          width: "100%",
-          height: "100%",
-          background: "white"
+          width: "60%",
         }}
         viewBox="0 0 800 1280"
         onAnimationEnd={handleAnimateEnd}
@@ -77,7 +77,7 @@ const Cover = ({ loaded }) => {
               type="translate"
               begin="layerAnimation.end"
               keyTimes="0; 0.5; 1"
-              values="0 0; 0 25; 0 -300"
+              values="0 0; 0 25; 0 -340"
               fill="freeze"
               dur="1s"
               repeatCount=""
@@ -104,7 +104,7 @@ const Cover = ({ loaded }) => {
               attributeType="XML"
               type="translate"
               begin="layerAnimation.end"
-              values="0 0; 0 -25; 0 220"
+              values="0 0; 0 -25; 0 180"
               keyTimes="0; 0.5; 1"
               fill="freeze"
               dur="1s"

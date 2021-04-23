@@ -10,7 +10,7 @@ svg * {
 }
 
 .logo-animation__scaleX {
-  animation: scaleX 1.5s linear 0.2s;
+  animation: scaleX 2s linear 0.2s;
 }
 
 .logo-animation__shake {
