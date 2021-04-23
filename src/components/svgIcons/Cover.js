@@ -42,7 +42,8 @@ const Cover = ({ loaded }) => {
         zIndex: 900,
         alignItems: "center",
         justifyContent: "center",
-        background: "white",
+        background: "#2c387e",
+        fill: "white",
       }}
       className={wapperAnimate}
     >
@@ -52,6 +53,8 @@ const Cover = ({ loaded }) => {
         y="0px"
         style={{
           width: "60%",
+          opacity: 0.98,
+          shapeRendering: "geometricPrecision",
         }}
         viewBox="0 0 800 1280"
         onAnimationEnd={handleAnimateEnd}

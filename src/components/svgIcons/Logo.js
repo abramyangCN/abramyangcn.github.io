@@ -26,6 +26,7 @@ const Logo = () => {
             top: "50%",
             left: "50%",
             transform: "translate(-50%,-50%)",
+            fill: 'white'
           }}
         >
           <svg x="0px" y="0px" viewBox="0 0 800 1280">
