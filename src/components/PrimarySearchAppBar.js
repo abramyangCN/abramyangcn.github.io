@@ -128,7 +128,7 @@ const PrimarySearchAppBar = ({ pages, logo, siteName }) => {
             style={{ boxShadow: "none", padding: 0 }}
           >
             <Link to="/">
-              <Logo />
+              <Logo padding="10%" />
             </Link>
           </IconButton>
           <div className={classes.search}>

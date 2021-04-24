@@ -2,7 +2,7 @@ import React, { useState } from "react"
 
 const Cover = ({ loaded }) => {
   const [animate, setAnimate] = useState("svg-logo logo-animation__scaleX")
-  const [wapperAnimate, setWapperAnimate] = useState("")
+  const [wrapperAnimate, setWrapperAnimate] = useState("")
   const [animationEnd, setAnimationEnd] = useState(false)
   const animationList = ["scaleX", "shake", "fadeOut"]
 
@@ -23,7 +23,7 @@ const Cover = ({ loaded }) => {
     if (animationName === animationList[1]) {
       if (loaded) {
         setAnimate("logo-animation__fadeOut")
-        setWapperAnimate("logo-animation__fadeOut")
+        setWrapperAnimate("logo-animation__fadeOut")
       }
     }
   }
@@ -45,14 +45,15 @@ const Cover = ({ loaded }) => {
         background: "#2c387e",
         fill: "white",
       }}
-      className={wapperAnimate}
+      className={wrapperAnimate}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         x="0px"
         y="0px"
         style={{
-          width: "60%",
+          width: "50vw",
+          height: "50vh",
           opacity: 0.98,
           shapeRendering: "geometricPrecision",
         }}
@@ -78,9 +79,9 @@ const Cover = ({ loaded }) => {
               attributeName="transform"
               attributeType="XML"
               type="translate"
-              begin="layerAnimation.end"
+              begin="1s"
               keyTimes="0; 0.5; 1"
-              values="0 0; 0 25; 0 -340"
+              values="0 0; 0 25; 0 -306"
               fill="freeze"
               dur="1s"
               repeatCount=""
@@ -106,8 +107,8 @@ const Cover = ({ loaded }) => {
               attributeName="transform"
               attributeType="XML"
               type="translate"
-              begin="layerAnimation.end"
-              values="0 0; 0 -25; 0 180"
+              begin="1s"
+              values="0 0; 0 -25; 0 178"
               keyTimes="0; 0.5; 1"
               fill="freeze"
               dur="1s"
@@ -115,19 +116,6 @@ const Cover = ({ loaded }) => {
               calcMode="linear"
             />
           </g>
-          <animateTransform
-            id="layerAnimation"
-            attributeName="transform"
-            begin="0s"
-            attributeType="XML"
-            dur="1s"
-            from="0 1"
-            to="1 1"
-            fill="freeze"
-            repeatCount=""
-            type="scaleX"
-            calcMode="linear"
-          ></animateTransform>
         </g>
       </svg>
     </div>

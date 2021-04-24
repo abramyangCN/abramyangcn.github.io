@@ -26,7 +26,7 @@ const Layout = ({ location, title, children }) => {
     <div data-is-root-path={isRootPath}>
       <PrimarySearchAppBar pages={navs} siteName={title} />
       <Container fixed>{children}</Container>
-      <footer>
+      <footer style={{textAlign: 'center'}}>
         © {new Date().getFullYear()}, Built with
         {` `}
         <a href="https://www.gatsbyjs.com">Gatsby</a>

@@ -1,6 +1,6 @@
 import React from "react"
 
-const Logo = () => {
+const Logo = ({ padding }) => {
   return (
     <div
       style={{
@@ -26,12 +26,16 @@ const Logo = () => {
             top: "50%",
             left: "50%",
             transform: "translate(-50%,-50%)",
-            fill: 'white'
+            fill: "white",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: padding || "",
           }}
         >
           <svg x="0px" y="0px" viewBox="0 0 800 1280">
             <g id="layer">
-              <g id="layer_v" transform="translate(0, -340)">
+              <g id="layer_v" transform="translate(0, -306)">
                 <path
                   id="v"
                   d="M601.4,663.8c-6.9,160.8-84,303.5-201.4,398.2c-117.4-94.7-194.4-237.3-201.4-398.2
@@ -39,7 +43,7 @@ const Logo = () => {
 			C692.7,708.1,648.5,682.7,601.4,663.8z"
                 />
               </g>
-              <g id="layer_i_a" transform="translate(0, 180)">
+              <g id="layer_i_a" transform="translate(0, 178)">
                 <g id="layer_i">
                   <path
                     id="i"

@@ -10,7 +10,7 @@ svg * {
 }
 
 .logo-animation__scaleX {
-  animation: scaleX 2s linear 0.2s;
+  animation: scaleX 2s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.2s;
 }
 
 .logo-animation__shake {
@@ -18,7 +18,7 @@ svg * {
 }
 
 .logo-animation__fadeOut {
-  animation: fadeOut 1.2s linear 0.2s;
+  animation: fadeOut 1.2s cubic-bezier(1, 0, 0, 1) 0.2s;
 }
 
 .logo-animation__repeat {
@@ -112,12 +112,12 @@ svg * {
   }
 
   70% {
-    -webkit-transform: scale(10);
+    -webkit-transform: scale(50);
     opacity: 0;
   }
 
   100% {
-    -webkit-transform: scale(10);
+    -webkit-transform: scale(50);
     opacity: 0;
   }
 }
@@ -130,12 +130,12 @@ svg * {
   }
 
   70% {
-    transform: scale(10);
+    transform: scale(50);
     opacity: 0;
   }
 
   100% {
-    transform: scale(10);
+    transform: scale(50);
     opacity: 0;
   }
 }
