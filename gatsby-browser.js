@@ -9,3 +9,14 @@ import "./src/assets/css/logo.css"
 
 // Highlighting for code blocks
 import "prismjs/themes/prism.css"
+
+import NProgress from "nprogress"
+
+export const onClientEntry = () => {
+  NProgress.start()
+  console.log("started")
+}
+
+export const onRouteUpdate = () => {
+  console.log("LOADED")
+}

@@ -21,6 +21,10 @@ svg * {
   animation: fadeOut 1.2s cubic-bezier(1, 0, 0, 1) 0.2s;
 }
 
+.logo-animation__beforeFadeOut {
+  animation: beforeFadeOut 1.2s cubic-bezier(1, 0, 0, 1) 0.2s;
+}
+
 .logo-animation__repeat {
   animation-iteration-count: infinite;
 }
@@ -107,7 +111,7 @@ svg * {
 
 @-webkit-keyframes fadeOut {
   0% {
-    -webkit-transform: scale(1, 1);
+    -webkit-transform: scale(1);
     opacity: 1;
   }
 
@@ -124,18 +128,46 @@ svg * {
 
 @keyframes fadeOut {
   0% {
-    transform: scale(1, 1);
+    transform: scale(1);
     opacity: 1;
-    background: "white",
+    background: "white";
   }
 
   70% {
-    transform: scale(50);
+    transform: scale(10);
     opacity: 0;
   }
 
   100% {
-    transform: scale(50);
+    transform: scale(10);
     opacity: 0;
+  }
+}
+
+@-webkit-keyframes fadeOut {
+  0% {
+    transform: scale(1);
+  }
+
+  70% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes beforeFadeOut {
+  0% {
+    transform: scale(1);
+  }
+
+  70% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1);
   }
 }

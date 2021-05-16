@@ -1,12 +1,14 @@
 import React, { useState } from "react"
 
-const Cover = ({ loaded }) => {
+const Cover = ({loaded}) => {
   const [animate, setAnimate] = useState("svg-logo logo-animation__scaleX")
   const [wrapperAnimate, setWrapperAnimate] = useState("")
   const [animationEnd, setAnimationEnd] = useState(false)
-  const animationList = ["scaleX", "shake", "fadeOut"]
+  const animationList = ["scaleX", "shake", "beforeFadeOut"]
 
   const handleAnimateEnd = event => {
+
+    console.log('end')
     const { animationName } = event
 
     if (animationName === animationList[0])
@@ -19,10 +21,11 @@ const Cover = ({ loaded }) => {
   }
 
   const handleAnimationIteration = event => {
+    console.log('handleAnimationIteration')
     const { animationName } = event
     if (animationName === animationList[1]) {
       if (loaded) {
-        setAnimate("logo-animation__fadeOut")
+        setAnimate("logo-animation__beforeFadeOut")
         setWrapperAnimate("logo-animation__fadeOut")
       }
     }
