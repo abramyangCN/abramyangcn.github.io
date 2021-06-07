@@ -17,6 +17,7 @@ const Logo = ({ padding }) => {
           position: "absolute",
           top: 0,
           left: 0,
+          overflow: "hidden",
         }}
       >
         <div
@@ -33,7 +34,7 @@ const Logo = ({ padding }) => {
             padding: padding || "",
           }}
         >
-          <svg x="0px" y="0px" viewBox="0 0 800 1280">
+          <svg x="0px" y="0px" viewBox="0 0 800 1280" style={{ width: "100%" }}>
             <g id="layer">
               <g id="layer_v" transform="translate(0, -306)">
                 <path
