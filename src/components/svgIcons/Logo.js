@@ -1,6 +1,6 @@
 import React from "react"
 
-const Logo = ({ padding }) => {
+const Logo = ({ padding, fill = 'white'}) => {
   return (
     <div
       style={{
@@ -27,7 +27,7 @@ const Logo = ({ padding }) => {
             top: "50%",
             left: "50%",
             transform: "translate(-50%,-50%)",
-            fill: "white",
+            fill: fill,
             display: "flex",
             alignItems: "center",
             justifyContent: "center",

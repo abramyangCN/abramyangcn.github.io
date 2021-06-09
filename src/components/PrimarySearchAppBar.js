@@ -118,7 +118,7 @@ const PrimarySearchAppBar = ({ pages, logo, siteName }) => {
 
   return (
     <div className={classes.grow}>
-      <AppBar position="static">
+      <AppBar position="static" color="transparent" position="fixed">
         <Toolbar>
           <IconButton
             edge="start"
@@ -128,7 +128,7 @@ const PrimarySearchAppBar = ({ pages, logo, siteName }) => {
             style={{ boxShadow: "none", padding: 0 }}
           >
             <Link to="/">
-              <Logo padding="10%" />
+              <Logo padding="10%" fill="var(--color-primary)"/>
             </Link>
           </IconButton>
           <div className={classes.search}>

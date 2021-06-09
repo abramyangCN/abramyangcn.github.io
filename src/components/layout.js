@@ -29,7 +29,7 @@ const Layout = ({ location, title, children }) => {
       <div className="banner">
         <StaticImage
           layout="fullWidth"
-          src="https://via.placeholder.com/1920x768/232129"
+          src="../images/port.jpg"
           alt="Profile picture"
         />
       </div>
