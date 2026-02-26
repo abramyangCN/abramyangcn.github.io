@@ -28,7 +28,7 @@ I've always believed that writing is one of the best ways to solidify your under
 
 This blog is built with:
 
-- **Next.js 14** - For static site generation
+- **Next.js 15** - For static site generation
 - **Tailwind CSS** - For styling
 - **Markdown** - For content
 

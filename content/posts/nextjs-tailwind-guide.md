@@ -1,7 +1,7 @@
 ---
 title: "Building Modern Web Apps with Next.js and Tailwind CSS"
 date: "2024-01-20"
-excerpt: "A comprehensive guide to building fast, beautiful web applications using Next.js 14 and Tailwind CSS."
+excerpt: "A comprehensive guide to building fast, beautiful web applications using Next.js 15 and Tailwind CSS."
 tags: ["nextjs", "tailwind", "webdev", "tutorial"]
 ---
 
